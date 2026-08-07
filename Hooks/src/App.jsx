@@ -63,21 +63,30 @@ import Counter from './Counter'
 // 4. Error handling
 
 
+// function App(){
+//   const [count,setCount]=useState(0);
+//   const [data,setDta]=useState(0);
+//   const [display,setDisplay]=useState(true);
+//   return (
+//     <div>
+//       {
+//         display ? <Counter count={count} data={data}></Counter>:null
+//       }
+//       <Counter count={count} data={data}></Counter>
+//       <button onClick={()=>setCount(count+1)}>Counter</button>
+//       <button onClick={()=>setData(data+1)}>Counter</button>
+//       <button onClick={()=>setDisplay(!display)}>Toggle</button>
+//     </div>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-04 (Style UI in React with CSS)
+// ======================================================
 
 function App(){
-  const [count,setCount]=useState(0);
-  const [data,setDta]=useState(0);
-  const [display,setDisplay]=useState(true);
   return (
-    <div>
-      {
-        display ? <Counter count={count} data={data}></Counter>:null
-      }
-      <Counter count={count} data={data}></Counter>
-      <button onClick={()=>setCount(count+1)}>Counter</button>
-      <button onClick={()=>setData(data+1)}>Counter</button>
-      <button onClick={()=>setDisplay(!display)}>Toggle</button>
-    </div>
+    <h1>Style UI in React with CSS</h1>
   )
 }
 
