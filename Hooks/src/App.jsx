@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import Counter from './Counter'
+import './css/style.css'
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -194,67 +195,126 @@ import Counter from './Counter'
 //                 lecture :-05 (Dynamic and Conditional Inline Style)
 // ======================================================
 
+// function App(){
+
+//   const [cardStyle,setCardStyle]=useState({
+//         border:'1px solid #cccccc3b',
+//         width:'200px',
+//         boxShadow: '1px 2px 3px 0px #cccccc57',
+//         margin:'10px'
+//   })
+
+//   const [textColor,setTextColor] = useState('black');
+//   const [grid,setGrid]=useState(true);
+
+//   const updateTheme =(bgColor,textColor)=>{
+//       // console.log(bgColor,textColor);
+//       setCardStyle({...cardStyle,backgroundColor:bgColor})
+//       setTextColor(textColor)
+//   }
+
+//   return (
+//     <>
+//     <h1>Dynamic and Conditional Inline Style</h1>
+//     <button onClick={()=>updateTheme('grey','red')}>Gray Theme</button>
+//     <button onClick={()=>updateTheme('white','black')}>Default Theme</button>
+//     <button onClick={()=>setGrid(!grid)}>Toggle Grid</button>
+//     <div style={{display:grid?'flex':'block', flexWrap:'wrap'}}>
+//        <div style={cardStyle}>
+//            <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar"></img>
+//            <div style={{padding:'5px',color:textColor}}>
+//              <h3>Nishu jha</h3>
+//              <p>Software developer</p>
+//            </div>
+//        </div>
+//        <div style={cardStyle}>
+//            <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//            <div style={{padding:'5px',color:textColor}}>
+//              <h3>Nishu jha</h3>
+//              <p>Software developer</p>
+//            </div>
+//        </div>
+//        <div style={cardStyle}>
+//            <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//            <div style={{padding:'5px',color:textColor}}>
+//              <h3>Nishu jha</h3>
+//              <p>Software developer</p>
+//            </div>
+//        </div>
+//        <div style={cardStyle}>
+//            <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//            <div style={{padding:'5px',color:textColor}}>
+//              <h3>Nishu jha</h3>
+//              <p>Software developer</p>
+//            </div>
+//        </div>
+//        <div style={cardStyle}>
+//            <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//            <div style={{padding:'5px',color:textColor}}>
+//              <h3>Nishu jha</h3>
+//              <p>Software developer</p>
+//            </div>
+//        </div>
+//      </div>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-05 (External style in React)
+// ======================================================
+
 function App(){
-
-  const [cardStyle,setCardStyle]=useState({
-        border:'1px solid #cccccc3b',
-        width:'200px',
-        boxShadow: '1px 2px 3px 0px #cccccc57',
-        margin:'10px'
-  })
-
-  const [textColor,setTextColor] = useState('black');
-  const [grid,setGrid]=useState(true);
-
-  const updateTheme =(bgColor,textColor)=>{
-      // console.log(bgColor,textColor);
-      setCardStyle({...cardStyle,backgroundColor:bgColor})
-      setTextColor(textColor)
-  }
-
   return (
     <>
-    <h1>Dynamic and Conditional Inline Style</h1>
-    <button onClick={()=>updateTheme('grey','red')}>Gray Theme</button>
-    <button onClick={()=>updateTheme('white','black')}>Default Theme</button>
-    <button onClick={()=>setGrid(!grid)}>Toggle Grid</button>
-    <div style={{display:grid?'flex':'block', flexWrap:'wrap'}}>
-       <div style={cardStyle}>
-           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar"></img>
-           <div style={{padding:'5px',color:textColor}}>
-             <h3>Nishu jha</h3>
-             <p>Software developer</p>
-           </div>
-       </div>
-       <div style={cardStyle}>
-           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-           <div style={{padding:'5px',color:textColor}}>
-             <h3>Nishu jha</h3>
-             <p>Software developer</p>
-           </div>
-       </div>
-       <div style={cardStyle}>
-           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-           <div style={{padding:'5px',color:textColor}}>
-             <h3>Nishu jha</h3>
-             <p>Software developer</p>
-           </div>
-       </div>
-       <div style={cardStyle}>
-           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-           <div style={{padding:'5px',color:textColor}}>
-             <h3>Nishu jha</h3>
-             <p>Software developer</p>
-           </div>
-       </div>
-       <div style={cardStyle}>
-           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-           <div style={{padding:'5px',color:textColor}}>
-             <h3>Nishu jha</h3>
-             <p>Software developer</p>
-           </div>
-       </div>
-     </div>
+    <h1 className='heading'>External style in React</h1>
+    <div className='container'>
+    <div className='user-card'>
+      <div>
+        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+      </div>
+      <div className='text-wrap'>
+        <h4>Nishu jha</h4>
+        <p>Software developer</p>
+      </div>
+    </div>
+    <div className='user-card'>
+      <div>
+        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+      </div>
+      <div className='text-wrap'>
+        <h4>Nishu jha</h4>
+        <p>Software developer</p>
+      </div>
+    </div>
+    <div className='user-card'>
+      <div>
+        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+      </div>
+      <div className='text-wrap'>
+        <h4>Nishu jha</h4>
+        <p>Software developer</p>
+      </div>
+    </div>
+    <div className='user-card'>
+      <div>
+        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+      </div>
+      <div className='text-wrap'>
+        <h4>Nishu jha</h4>
+        <p>Software developer</p>
+      </div>
+    </div>
+    <div className='user-card'>
+      <div>
+        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+      </div>
+      <div className='text-wrap'>
+        <h4>Nishu jha</h4>
+        <p>Software developer</p>
+      </div>
+    </div>
+    </div>
     </>
   )
 }
