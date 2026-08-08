@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
-import './App.css'
 import Counter from './Counter'
 
 // ======================================================
@@ -84,9 +83,110 @@ import Counter from './Counter'
 //                 lecture :-04 (Style UI in React with CSS)
 // ======================================================
 
+// Styling UI in React with CSS
+
+// In React, CSS is used to control the appearance and layout of components such as colors, fonts, spacing, borders, and responsiveness.
+
+// There are several common ways to style React components:
+
+// External CSS
+
+// Create a .css file and import it into the component.
+// import './App.css';
+
+// function App() {
+//   return <h1 className="title">Hello React</h1>;
+// }
+
+// Inline CSS
+
+// Use the style attribute with a JavaScript object.
+// <h1 style={{ color: "blue", fontSize: "30px" }}>
+//   Hello React
+// </h1>
+
+// CSS Modules
+
+// CSS styles are scoped to a particular component.
+
+// import styles from './App.module.css';
+
+// <h1 className={styles.title}>Hello React</h1>
+
+// function App(){
+//   return (
+//     <h1>Style UI in React with CSS</h1>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-05 (Inline Style in React with CSS)
+// ======================================================
+
 function App(){
+
+  const cardStyle={
+        border:'1px solid #cccccc3b',
+        width:'200px',
+        boxShadow: '1px 2px 3px 0px #cccccc57',
+        margin:'10px'
+  }
+
   return (
-    <h1>Style UI in React with CSS</h1>
+    <>
+    <h1 style={{color:'red'}}>Inline Style in React with CSS  </h1>
+    <div style={{display:'flex', flexWrap:'wrap'}}>
+    <div style={cardStyle}>
+        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+        <div style={{padding:'5px'}}>
+          <h3>Nishu jha</h3>
+          <p>Software developer</p>
+        </div>
+    </div>
+    <div style={cardStyle}>
+        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+        <div style={{padding:'5px'}}>
+          <h3>Nishu jha</h3>
+          <p>Software developer</p>
+        </div>
+    </div>
+    <div style={cardStyle}>
+        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+        <div style={{padding:'5px'}}>
+          <h3>Nishu jha</h3>
+          <p>Software developer</p>
+        </div>
+    </div>
+    <div style={cardStyle}>
+        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+        <div style={{padding:'5px'}}>
+          <h3>Nishu jha</h3>
+          <p>Software developer</p>
+        </div>
+    </div>
+    <div style={cardStyle}>
+        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+        <div style={{padding:'5px'}}>
+          <h3>Nishu jha</h3>
+          <p>Software developer</p>
+        </div>
+    </div>
+    <div style={cardStyle}>
+        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+        <div style={{padding:'5px'}}>
+          <h3>Nishu jha</h3>
+          <p>Software developer</p>
+        </div>
+    </div>
+    </div>
+    <div style={cardStyle}>
+        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+        <div style={{padding:'5px'}}>
+          <h3>Nishu jha</h3>
+          <p>Software developer</p>
+        </div>
+    </div>
+    </>
   )
 }
 
