@@ -7,6 +7,7 @@ import './css/style.css'
 import UserProfile from './UserProfile'
 import styled from "styled-components"
 import { Button,Alert } from 'react-bootstrap'
+import User from './User'
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -443,43 +444,64 @@ import { Button,Alert } from 'react-bootstrap'
 //                 lecture :-12 (React Uncontrolled Component)
 // ======================================================
 
+// function App(){
+
+//   const userRef = useRef();
+//   const passwordRef = useRef();
+
+//   const handleForm=(event)=>{
+//     event.preventDefault();
+//     const user = document.querySelector("#user").value;
+//     const password = document.querySelector("#password").value;
+//     console.log(user,password);
+//   }
+
+//   const handleFormRef=()=>{
+//     event.preventDefault();
+//     const user=userRef.current.value;
+//     const password=passwordRef.current.value;
+//     console.log("handleFormref",user,password)
+//   }
+//   return (
+//     <>
+//     <h1>React Uncontrolled Component</h1>
+//     <form action="" method="post" onSubmit={handleForm}>
+//       <input type="text" id="user" placeholder="enter user name"/>
+//       <br/><br/>
+//       <input type="password" id="password" placeholder="enter password"/>
+//       <br/><br/>
+//       <button>Submit</button>
+//     </form>
+//     <hr/>
+//     <h1>React Uncontrolled Component with useRef</h1>
+//     <form action="" method="post" onSubmit={handleFormRef}>
+//       <input type="text" ref={userRef} id="userRef" placeholder="enter user name"/>
+//       <br/><br/>
+//       <input type="password" ref={passwordRef} id="passwordRef" placeholder="enter password"/>
+//       <br/><br/>
+//       <button>Submit with ref</button>
+//     </form> 
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-13 (Pass function as Props)
+// ======================================================
+
 function App(){
-
-  const userRef = useRef();
-  const passwordRef = useRef();
-
-  const handleForm=(event)=>{
-    event.preventDefault();
-    const user = document.querySelector("#user").value;
-    const password = document.querySelector("#password").value;
-    console.log(user,password);
+  const displayName = (name)=>{
+    alert(name);
   }
-
-  const handleFormRef=()=>{
-    event.preventDefault();
-    const user=userRef.current.value;
-    const password=passwordRef.current.value;
-    console.log("handleFormref",user,password)
+  const getUser=()=>{
+    alert("get user function called");
   }
   return (
     <>
-    <h1>React Uncontrolled Component</h1>
-    <form action="" method="post" onSubmit={handleForm}>
-      <input type="text" id="user" placeholder="enter user name"/>
-      <br/><br/>
-      <input type="password" id="password" placeholder="enter password"/>
-      <br/><br/>
-      <button>Submit</button>
-    </form>
-    <hr/>
-    <h1>React Uncontrolled Component with useRef</h1>
-    <form action="" method="post" onSubmit={handleFormRef}>
-      <input type="text" ref={userRef} id="userRef" placeholder="enter user name"/>
-      <br/><br/>
-      <input type="password" ref={passwordRef} id="passwordRef" placeholder="enter password"/>
-      <br/><br/>
-      <button>Submit with ref</button>
-    </form> 
+    <h1>Pass function as Props</h1>
+    <User displayName={displayName} name="nishu" getUser={getUser}/>
+    <User displayName={displayName} name="sam" getUser={getUser}/>
+    <User displayName={displayName} name="peter" getUser={getUser}/>
     </>
   )
 }
