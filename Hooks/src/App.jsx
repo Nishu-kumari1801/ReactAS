@@ -123,69 +123,138 @@ import Counter from './Counter'
 //                 lecture :-05 (Inline Style in React with CSS)
 // ======================================================
 
+// function App(){
+
+  // const cardStyle={
+  //       border:'1px solid #cccccc3b',
+  //       width:'200px',
+  //       boxShadow: '1px 2px 3px 0px #cccccc57',
+  //       margin:'10px'
+  // }
+
+//   return (
+//     <>
+//     <h1 style={{color:'red'}}>Inline Style in React with CSS  </h1>
+//     <div style={{display:'flex', flexWrap:'wrap'}}>
+//     <div style={cardStyle}>
+//         <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//         <div style={{padding:'5px'}}>
+//           <h3>Nishu jha</h3>
+//           <p>Software developer</p>
+//         </div>
+//     </div>
+//     <div style={cardStyle}>
+//         <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//         <div style={{padding:'5px'}}>
+//           <h3>Nishu jha</h3>
+//           <p>Software developer</p>
+//         </div>
+//     </div>
+//     <div style={cardStyle}>
+//         <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//         <div style={{padding:'5px'}}>
+//           <h3>Nishu jha</h3>
+//           <p>Software developer</p>
+//         </div>
+//     </div>
+//     <div style={cardStyle}>
+//         <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//         <div style={{padding:'5px'}}>
+//           <h3>Nishu jha</h3>
+//           <p>Software developer</p>
+//         </div>
+//     </div>
+//     <div style={cardStyle}>
+//         <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//         <div style={{padding:'5px'}}>
+//           <h3>Nishu jha</h3>
+//           <p>Software developer</p>
+//         </div>
+//     </div>
+//     <div style={cardStyle}>
+//         <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//         <div style={{padding:'5px'}}>
+//           <h3>Nishu jha</h3>
+//           <p>Software developer</p>
+//         </div>
+//     </div>
+//     </div>
+//     <div style={cardStyle}>
+//         <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+//         <div style={{padding:'5px'}}>
+//           <h3>Nishu jha</h3>
+//           <p>Software developer</p>
+//         </div>
+//     </div>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-05 (Dynamic and Conditional Inline Style)
+// ======================================================
+
 function App(){
 
-  const cardStyle={
+  const [cardStyle,setCardStyle]=useState({
         border:'1px solid #cccccc3b',
         width:'200px',
         boxShadow: '1px 2px 3px 0px #cccccc57',
         margin:'10px'
+  })
+
+  const [textColor,setTextColor] = useState('black');
+  const [grid,setGrid]=useState(true);
+
+  const updateTheme =(bgColor,textColor)=>{
+      // console.log(bgColor,textColor);
+      setCardStyle({...cardStyle,backgroundColor:bgColor})
+      setTextColor(textColor)
   }
 
   return (
     <>
-    <h1 style={{color:'red'}}>Inline Style in React with CSS  </h1>
-    <div style={{display:'flex', flexWrap:'wrap'}}>
-    <div style={cardStyle}>
-        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-        <div style={{padding:'5px'}}>
-          <h3>Nishu jha</h3>
-          <p>Software developer</p>
-        </div>
-    </div>
-    <div style={cardStyle}>
-        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-        <div style={{padding:'5px'}}>
-          <h3>Nishu jha</h3>
-          <p>Software developer</p>
-        </div>
-    </div>
-    <div style={cardStyle}>
-        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-        <div style={{padding:'5px'}}>
-          <h3>Nishu jha</h3>
-          <p>Software developer</p>
-        </div>
-    </div>
-    <div style={cardStyle}>
-        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-        <div style={{padding:'5px'}}>
-          <h3>Nishu jha</h3>
-          <p>Software developer</p>
-        </div>
-    </div>
-    <div style={cardStyle}>
-        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-        <div style={{padding:'5px'}}>
-          <h3>Nishu jha</h3>
-          <p>Software developer</p>
-        </div>
-    </div>
-    <div style={cardStyle}>
-        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-        <div style={{padding:'5px'}}>
-          <h3>Nishu jha</h3>
-          <p>Software developer</p>
-        </div>
-    </div>
-    </div>
-    <div style={cardStyle}>
-        <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
-        <div style={{padding:'5px'}}>
-          <h3>Nishu jha</h3>
-          <p>Software developer</p>
-        </div>
-    </div>
+    <h1>Dynamic and Conditional Inline Style</h1>
+    <button onClick={()=>updateTheme('grey','red')}>Gray Theme</button>
+    <button onClick={()=>updateTheme('white','black')}>Default Theme</button>
+    <button onClick={()=>setGrid(!grid)}>Toggle Grid</button>
+    <div style={{display:grid?'flex':'block', flexWrap:'wrap'}}>
+       <div style={cardStyle}>
+           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar"></img>
+           <div style={{padding:'5px',color:textColor}}>
+             <h3>Nishu jha</h3>
+             <p>Software developer</p>
+           </div>
+       </div>
+       <div style={cardStyle}>
+           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+           <div style={{padding:'5px',color:textColor}}>
+             <h3>Nishu jha</h3>
+             <p>Software developer</p>
+           </div>
+       </div>
+       <div style={cardStyle}>
+           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+           <div style={{padding:'5px',color:textColor}}>
+             <h3>Nishu jha</h3>
+             <p>Software developer</p>
+           </div>
+       </div>
+       <div style={cardStyle}>
+           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+           <div style={{padding:'5px',color:textColor}}>
+             <h3>Nishu jha</h3>
+             <p>Software developer</p>
+           </div>
+       </div>
+       <div style={cardStyle}>
+           <img style={{width:'200px'}} src="https://www.w3schools.com/howto/img_avatar.png" alt=""></img>
+           <div style={{padding:'5px',color:textColor}}>
+             <h3>Nishu jha</h3>
+             <p>Software developer</p>
+           </div>
+       </div>
+     </div>
     </>
   )
 }
