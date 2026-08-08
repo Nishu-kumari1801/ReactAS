@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import Counter from './Counter'
 import './css/style.css'
 import UserProfile from './UserProfile'
+import styled from "styled-components"
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -324,20 +325,63 @@ import UserProfile from './UserProfile'
 //                 lecture :-08 (Style with CSS Module)
 // ======================================================
 
+// function App(){
+//   return (
+//     <>
+//     <h1>Style with CSS Module</h1>
+//     <div style={{display:"flex",flexWrap:"wrap"}}>
+//     <UserProfile/>
+//     <UserProfile/>
+//     <UserProfile/>
+//     <UserProfile/>
+//     <UserProfile/>
+//     <UserProfile/>
+//     <UserProfile/>
+//     </div>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-09 (React Styled Components)
+// ======================================================
+
 function App(){
+  
+  // const Heading = styled.h1`
+  // color:red;
+  // border:1px solid green;
+  // border-radius:5px;
+  // margin:20px;
+  // padding:20px
+  // `
+
+  const Heading=styled.h1({
+      color:'red',
+      border:'1px solid green',
+      borderRadius:'5px',
+      margin:'20px',
+      padding:'20px'
+  })
+
+  const StyleBtn = styled.button`
+  color:red;
+  width:130px;
+  height:40px;
+  margin:20px;
+  `
   return (
     <>
-    <h1>Style with CSS Module</h1>
-    <div style={{display:"flex",flexWrap:"wrap"}}>
-    <UserProfile/>
-    <UserProfile/>
-    <UserProfile/>
-    <UserProfile/>
-    <UserProfile/>
-    <UserProfile/>
-    <UserProfile/>
-    </div>
+    <h1>React Styled Components</h1>
+    <Heading>Hello Heading</Heading>
+    <Heading>Hello Heading 2</Heading>
+    <Heading>Hello Heading 3</Heading>
+    <Heading>Hello Heading 4</Heading>
+    <StyleBtn>Login</StyleBtn>
+    <StyleBtn>Signup</StyleBtn>
+    <StyleBtn>SignOut</StyleBtn>
     </>
   )
 }
+
 export default App
