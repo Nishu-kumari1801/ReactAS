@@ -6,6 +6,7 @@ import Counter from './Counter'
 import './css/style.css'
 import UserProfile from './UserProfile'
 import styled from "styled-components"
+import { Button,Alert } from 'react-bootstrap'
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -346,42 +347,57 @@ import styled from "styled-components"
 //                 lecture :-09 (React Styled Components)
 // ======================================================
 
-function App(){
+// function App(){
   
-  // const Heading = styled.h1`
-  // color:red;
-  // border:1px solid green;
-  // border-radius:5px;
-  // margin:20px;
-  // padding:20px
-  // `
+//   // const Heading = styled.h1`
+//   // color:red;
+//   // border:1px solid green;
+//   // border-radius:5px;
+//   // margin:20px;
+//   // padding:20px
+//   // `
 
-  const Heading=styled.h1({
-      color:'red',
-      border:'1px solid green',
-      borderRadius:'5px',
-      margin:'20px',
-      padding:'20px'
-  })
+//   const Heading=styled.h1({
+//       color:'red',
+//       border:'1px solid green',
+//       borderRadius:'5px',
+//       margin:'20px',
+//       padding:'20px'
+//   })
 
-  const StyleBtn = styled.button`
-  color:red;
-  width:130px;
-  height:40px;
-  margin:20px;
-  `
+//   const StyleBtn = styled.button`
+//   color:red;
+//   width:130px;
+//   height:40px;
+//   margin:20px;
+//   `
+//   return (
+//     <>
+//     <h1>React Styled Components</h1>
+//     <Heading>Hello Heading</Heading>
+//     <Heading>Hello Heading 2</Heading>
+//     <Heading>Hello Heading 3</Heading>
+//     <Heading>Hello Heading 4</Heading>
+//     <StyleBtn>Login</StyleBtn>
+//     <StyleBtn>Signup</StyleBtn>
+//     <StyleBtn>SignOut</StyleBtn>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-10 (Adding Bootstrap in React App)
+// ======================================================
+
+function App(){
   return (
     <>
-    <h1>React Styled Components</h1>
-    <Heading>Hello Heading</Heading>
-    <Heading>Hello Heading 2</Heading>
-    <Heading>Hello Heading 3</Heading>
-    <Heading>Hello Heading 4</Heading>
-    <StyleBtn>Login</StyleBtn>
-    <StyleBtn>Signup</StyleBtn>
-    <StyleBtn>SignOut</StyleBtn>
+    <h1>Adding Bootstrap in React App</h1>
+    <Button>Login</Button>
+    <Alert variant="danger">Hello-BT installed</Alert>
+    <Button variant='success'>ok</Button>
+    <Alert variant='warning'>ok</Alert>
     </>
   )
 }
-
 export default App
