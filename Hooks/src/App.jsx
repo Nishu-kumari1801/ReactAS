@@ -4,6 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import Counter from './Counter'
 import './css/style.css'
+import UserProfile from './UserProfile'
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -192,7 +193,7 @@ import './css/style.css'
 // }
 
 // ======================================================
-//                 lecture :-05 (Dynamic and Conditional Inline Style)
+//                 lecture :-06 (Dynamic and Conditional Inline Style)
 // ======================================================
 
 // function App(){
@@ -261,62 +262,82 @@ import './css/style.css'
 // }
 
 // ======================================================
-//                 lecture :-05 (External style in React)
+//                 lecture :-07 (External style in React)
+// ======================================================
+
+// function App(){
+//   return (
+//     <>
+//     <h1 className='heading'>External style in React</h1>
+//     <div className='container'>
+//     <div className='user-card'>
+//       <div>
+//         <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+//       </div>
+//       <div className='text-wrap'>
+//         <h4>Nishu jha</h4>
+//         <p>Software developer</p>
+//       </div>
+//     </div>
+//     <div className='user-card'>
+//       <div>
+//         <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+//       </div>
+//       <div className='text-wrap'>
+//         <h4>Nishu jha</h4>
+//         <p>Software developer</p>
+//       </div>
+//     </div>
+//     <div className='user-card'>
+//       <div>
+//         <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+//       </div>
+//       <div className='text-wrap'>
+//         <h4>Nishu jha</h4>
+//         <p>Software developer</p>
+//       </div>
+//     </div>
+//     <div className='user-card'>
+//       <div>
+//         <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+//       </div>
+//       <div className='text-wrap'>
+//         <h4>Nishu jha</h4>
+//         <p>Software developer</p>
+//       </div>
+//     </div>
+//     <div className='user-card'>
+//       <div>
+//         <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
+//       </div>
+//       <div className='text-wrap'>
+//         <h4>Nishu jha</h4>
+//         <p>Software developer</p>
+//       </div>
+//     </div>
+//     </div>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-08 (Style with CSS Module)
 // ======================================================
 
 function App(){
   return (
     <>
-    <h1 className='heading'>External style in React</h1>
-    <div className='container'>
-    <div className='user-card'>
-      <div>
-        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
-      </div>
-      <div className='text-wrap'>
-        <h4>Nishu jha</h4>
-        <p>Software developer</p>
-      </div>
-    </div>
-    <div className='user-card'>
-      <div>
-        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
-      </div>
-      <div className='text-wrap'>
-        <h4>Nishu jha</h4>
-        <p>Software developer</p>
-      </div>
-    </div>
-    <div className='user-card'>
-      <div>
-        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
-      </div>
-      <div className='text-wrap'>
-        <h4>Nishu jha</h4>
-        <p>Software developer</p>
-      </div>
-    </div>
-    <div className='user-card'>
-      <div>
-        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
-      </div>
-      <div className='text-wrap'>
-        <h4>Nishu jha</h4>
-        <p>Software developer</p>
-      </div>
-    </div>
-    <div className='user-card'>
-      <div>
-        <img className='img-style' src="https://www.w3schools.com/howto/img_avatar.png" />
-      </div>
-      <div className='text-wrap'>
-        <h4>Nishu jha</h4>
-        <p>Software developer</p>
-      </div>
-    </div>
+    <h1>Style with CSS Module</h1>
+    <div style={{display:"flex",flexWrap:"wrap"}}>
+    <UserProfile/>
+    <UserProfile/>
+    <UserProfile/>
+    <UserProfile/>
+    <UserProfile/>
+    <UserProfile/>
+    <UserProfile/>
     </div>
     </>
   )
 }
-
 export default App
