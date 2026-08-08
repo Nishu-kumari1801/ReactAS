@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState ,useRef} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -389,14 +389,52 @@ import { Button,Alert } from 'react-bootstrap'
 //                 lecture :-10 (Adding Bootstrap in React App)
 // ======================================================
 
+// function App(){
+//   return (
+//     <>
+//     <h1>Adding Bootstrap in React App</h1>
+//     <Button>Login</Button>
+//     <Alert variant="danger">Hello-BT installed</Alert>
+//     <Button variant='success'>ok</Button>
+//     <Alert variant='warning'>ok</Alert>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-11 (useRef Hook in React 19)
+// ======================================================
+
 function App(){
+  const inputRef = useRef(null);
+  const h1Ref = useRef(null);
+  const inputHandler = ()=>{
+    console.log(inputRef);
+    inputRef.current.focus();
+    inputRef.current.style.color='red';
+    inputRef.current.placeholder="enter password";
+    inputRef.current.value="123";
+  }
+  const toggleHandler=()=>{ 
+    if(inputRef.current.style.display != 'none'){
+        inputRef.current.style.display = 'none';
+    }else{
+      inputRef.current.style.display = 'inline';
+    }
+  }
+
+  const h1Handler=()=>{
+    h1ref.current.style.color='green'
+  }
+
   return (
     <>
-    <h1>Adding Bootstrap in React App</h1>
-    <Button>Login</Button>
-    <Alert variant="danger">Hello-BT installed</Alert>
-    <Button variant='success'>ok</Button>
-    <Alert variant='warning'>ok</Alert>
+    <h1>useRef Hook in React 19</h1>
+    <button onClick={toggleHandler}>Toggle</button>
+    <input ref={inputRef} type="text" placeholder="enter username"></input>
+    <button onClick={inputHandler}>Focus onInput field</button>
+    <h1 ref={h1Ref}>Code step by step</h1>
+    <button onClick={h1Handler}>Handler</button>
     </>
   )
 }
