@@ -584,13 +584,53 @@ import UserInput from './UserInput'
 // }
 
 // ======================================================
-//                 lecture :-16 (React JS Pure Component )
+//                 lecture :-16 (React JS Pure Component)
 // ======================================================
 
+// function App(){
+//   return (
+//     <>
+//     <h1>React JS Pure Component </h1>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-16 (Derived State in React )
+// ======================================================
+
+/** Derived state in react js :-
+ * state that is calculated or derived from other state values or props within 
+ * your component.
+ * derived state can be a variable
+ * No need to extra state only variables or constants are enough.
+*/
+
 function App(){
+  const [users,setUsers]=useState([]);
+  const [user,setUser]=useState('');
+  const handleAddUsers = ()=>{
+    setUsers([...users,user])
+  }
+  // console.log(users);
+
+  const total=users.length; //derived state
+  const last = users[users.length-1]
+  const unique = [...new Set(users)].length
+
   return (
     <>
-    <h1>React JS Pure Component </h1>
+    <h1> Derived State in React</h1>
+    <h2>Total User : {total}</h2>
+    <h2>Last User : {last}</h2>
+    <h2>Unique Total User : {unique}</h2>
+    <input type="text" onChange={(event)=>setUser(event.target.value)} placeholder='add new user' />
+    <button onClick={handleAddUsers}>Add User</button>
+    {
+      users.map((item,index)=>(
+        <h4 key={index}>{item}</h4>
+      ))
+    }
     </>
   )
 }
