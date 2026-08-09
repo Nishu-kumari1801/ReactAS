@@ -767,40 +767,66 @@ import DisplayUser from './DisplayUser';
 //                 lecture :-21 (useId Hook in React 19)
 // ======================================================
 
-function App(){
+// function App(){
  
+//   return (
+//     <>
+//     <UserForm/><hr/>
+//     <UserForm/><hr/>
+//     <UserForm/><hr/>
+    
+//     </>
+//   )
+// }
+
+// function UserForm(){
+//   const name = useId();
+//   const password = useId();
+//   const terms = useId();
+//   const skills = useId();
+//   return (
+//     <>
+   
+//      <form action="">
+//       <label htmlFor={name}>Enter username</label>
+//       <input id={name} type="text" placeholder='enter name'/>
+//       <br/><br/>
+//       <label htmlFor={password}>Enter password</label>
+//       <input id={password} type="text" placeholder='enter password'/>
+//       <br/><br/>
+//       <label htmlFor={skills}>Enter skills</label>
+//       <input id={skills} type="text" placeholder='enter skills'/>
+//       <br/><br/>
+//       <input id={terms} type="checkbox" placeholder='enter terms'/>
+//       <label htmlFor={terms}>Terms and condition</label>
+//      </form>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-21 (React JS Fragment)
+// ======================================================
+
+
+// ======================================================
+//                 lecture :-22 ( React JS Fragment)
+// ======================================================
+
+/* 
+Fragments can be used as parent element and it does not create any extra element
+ */
+
+function App(){
   return (
     <>
-    <UserForm/><hr/>
-    <UserForm/><hr/>
-    <UserForm/><hr/>
-    
+    <h1>React JS Fragment</h1>
     </>
   )
 }
 
-function UserForm(){
-  const name = useId();
-  const password = useId();
-  const terms = useId();
-  const skills = useId();
-  return (
-    <>
-   
-     <form action="">
-      <label htmlFor={name}>Enter username</label>
-      <input id={name} type="text" placeholder='enter name'/>
-      <br/><br/>
-      <label htmlFor={password}>Enter password</label>
-      <input id={password} type="text" placeholder='enter password'/>
-      <br/><br/>
-      <label htmlFor={skills}>Enter skills</label>
-      <input id={skills} type="text" placeholder='enter skills'/>
-      <br/><br/>
-      <input id={terms} type="checkbox" placeholder='enter terms'/>
-      <label htmlFor={terms}>Terms and condition</label>
-     </form>
-    </>
-  )
-}
+// ======================================================
+//                 lecture :-22 ( React JS Fragment)
+// ======================================================
+
 export default App
