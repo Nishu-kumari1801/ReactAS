@@ -1,4 +1,4 @@
-import { useEffect, useState ,useRef} from 'react'
+import { useEffect, useState ,useRef, useTransition} from 'react'
 import {useFormStatus} from 'react-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -532,29 +532,56 @@ import UserInput from './UserInput'
 //                 lecture :-15 (useFormStatus Hook)
 // ======================================================
 
+// function App(){
+//   const handleSubmit= async ()=>{
+//     await new Promise(res=>setTimeout(res,2000));
+//     console.log("submit");
+//   }
+//   function CustomForm(){
+//     const {pending} =useFormStatus();
+//     console.log(pending);
+//     return(
+//       <>
+//       <input type="text" placeholder="Enter name"/><br/><br/>
+//        <input type="text" placeholder="Enter password"/><br/><br/>
+//        <button disabled={pending}>{pending?'submitting':'submit'}</button>
+//       </>
+//     )
+//   }
+//   return (
+//     <>
+//     <h1>useFormStatus Hook</h1>
+//     <form action={handleSubmit}>
+//        <CustomForm/>
+//     </form>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-16 (useTransition Hook in React JS)
+// ======================================================
+
 function App(){
-  const handleSubmit= async ()=>{
-    await new Promise(res=>setTimeout(res,2000));
-    console.log("submit");
-  }
-  function CustomForm(){
-    const {pending} =useFormStatus();
-    console.log(pending);
-    return(
-      <>
-      <input type="text" placeholder="Enter name"/><br/><br/>
-       <input type="text" placeholder="Enter password"/><br/><br/>
-       <button disabled={pending}>{pending?'submitting':'submit'}</button>
-      </>
-    )
+  // const [pending,setPending]=useState(false);
+    const [pending,startTransition] = useTransition();
+
+  const handleButton=async()=>{
+     startTransition(async()=>{
+      await new Promise(res=>setTimeout(res,2000))
+     })
+    // setPending(true);
+    
+    // setPending(false);
+
   }
   return (
     <>
-    <h1>useFormStatus Hook</h1>
-    <form action={handleSubmit}>
-       <CustomForm/>
-    </form>
+    <h1>useTransition Hook in React JS</h1>
+    <button disabled={pending} onClick={handleButton}>Click</button>
     </>
   )
 }
+
+
 export default App
