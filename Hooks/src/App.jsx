@@ -817,16 +817,32 @@ import DisplayUser from './DisplayUser';
 Fragments can be used as parent element and it does not create any extra element
  */
 
+// function App(){
+//   return (
+//     <>
+//     <h1>React JS Fragment</h1>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-23 (React JS Rules for Hooks)
+// ======================================================
+
+/** start with use (useRef,useEffect,useRef)
+ * use Hooks at top level
+ * 
+ */
+
+// ======================================================
+//                 lecture :-24 (Make custom Hooks)
+// ======================================================
+
 function App(){
   return (
     <>
-    <h1>React JS Fragment</h1>
+    <h1>Make custom hooks</h1>
     </>
   )
 }
-
-// ======================================================
-//                 lecture :-22 ( React JS Fragment)
-// ======================================================
-
 export default App
