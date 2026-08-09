@@ -8,6 +8,7 @@ import UserProfile from './UserProfile'
 import styled from "styled-components"
 import { Button,Alert } from 'react-bootstrap'
 import User from './User'
+import UserInput from './UserInput'
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -489,19 +490,39 @@ import User from './User'
 //                 lecture :-13 (Pass function as Props)
 // ======================================================
 
+// function App(){
+//   const displayName = (name)=>{
+//     alert(name);
+//   }
+//   const getUser=()=>{
+//     alert("get user function called");
+//   }
+//   return (
+//     <>
+//     <h1>Pass function as Props</h1>
+//     <User displayName={displayName} name="nishu" getUser={getUser}/>
+//     <User displayName={displayName} name="sam" getUser={getUser}/>
+//     <User displayName={displayName} name="peter" getUser={getUser}/>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-14 ( ForwardRef in React 19)
+// ======================================================
+
 function App(){
-  const displayName = (name)=>{
-    alert(name);
-  }
-  const getUser=()=>{
-    alert("get user function called");
+  const inputRef=useRef(null);
+  const updateInput=()=>{
+    inputRef.current.value=1000;
+    inputRef.current.focus();
+    inputRef.current.style.color="green"
   }
   return (
     <>
-    <h1>Pass function as Props</h1>
-    <User displayName={displayName} name="nishu" getUser={getUser}/>
-    <User displayName={displayName} name="sam" getUser={getUser}/>
-    <User displayName={displayName} name="peter" getUser={getUser}/>
+    <h1> ForwardRef in React 19</h1>
+    <UserInput ref={inputRef}/>
+    <button onClick={updateInput}>Update Input field</button>
     </>
   )
 }
