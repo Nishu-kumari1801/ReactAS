@@ -1,4 +1,4 @@
-import { useEffect, useState ,useRef, useTransition} from 'react'
+import { useEffect, useState ,useRef, useTransition, useActionState} from 'react'
 import {useFormStatus} from 'react-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -698,25 +698,68 @@ import DisplayUser from './DisplayUser';
 //                 lecture :-19 (Updating array in state)
 // ======================================================
 
+// function App(){
+//   // const [name,setName] = useState('nishu');
+//   const [data,setData] = useState(['nishu','sam','peter','tony']);
+//   const handleUser=(name)=>{
+//     data[data.length-1]=name;
+//     console.log(data);
+//     setData([...data])
+//   }
+//   return (
+//     <>
+//     <h1>Updating array in state</h1>
+//     <input type="text" placeholder='enter last user name' 
+//     onChange={(e)=>handleUser(e.target.value)}></input>
+//      {
+//       data.map((item,index)=>(
+//         <h3 key={index}>{item}</h3>
+//       ))
+//      }
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-20 (useAction Hook)
+// ======================================================
+
 function App(){
-  // const [name,setName] = useState('nishu');
-  const [data,setData] = useState(['nishu','sam','peter','tony']);
-  const handleUser=(name)=>{
-    data[data.length-1]=name;
-    console.log(data);
-    setData([...data])
+  const handleSubmit=async(previousData,formData)=>{
+    let name = formData.get('name');
+    let password = formData.get('password');
+    await new Promise(res=>setTimeout(res,2000))
+    console.log("handleSubmit called",name,password);
+    if(name && password){
+      return {message:'Data submitted',name,password};
+    }else{
+      return {error :'Failed to submit. Enter proper data',name,password}
+    }
   }
+  const [data,action,pending] = useActionState(handleSubmit,undefined);
+  console.log(data);
   return (
-    <>
-    <h1>Updating array in state</h1>
-    <input type="text" placeholder='enter last user name' 
-    onChange={(e)=>handleUser(e.target.value)}></input>
-     {
-      data.map((item,index)=>(
-        <h3 key={index}>{item}</h3>
-      ))
-     }
-    </>
+    <div>
+    <h1>useAction Hook</h1>
+    <form action={action}> 
+        <input defaultValue={data?.name} type="text" placeholder='enter name' name='name'/>
+        <br/><br/>
+        <input defaultValue={data?.password} type="password" placeholder='enter password' name='password'/>
+        <br/><br/>
+        <button disabled={pending}>Submit Data</button>
+        <br/><br/>
+       
+    </form>
+
+        {
+          data?.error && <span style={{color:'red'}}>{data?.error}</span>
+        }
+        {
+          data?.message && <span style={{color:'green'}}>{data?.message}</span>
+        }
+        <h3>Name: {data?.name}</h3>
+        <h3>Password: {data?.password}</h3>
+    </div>
   )
 }
 
