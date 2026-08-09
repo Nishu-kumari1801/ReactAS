@@ -1,4 +1,4 @@
-import { useEffect, useState ,useRef, useTransition, useActionState} from 'react'
+import { useEffect, useState ,useRef, useTransition, useActionState,useId} from 'react'
 import {useFormStatus} from 'react-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -724,43 +724,83 @@ import DisplayUser from './DisplayUser';
 //                 lecture :-20 (useAction Hook)
 // ======================================================
 
-function App(){
-  const handleSubmit=async(previousData,formData)=>{
-    let name = formData.get('name');
-    let password = formData.get('password');
-    await new Promise(res=>setTimeout(res,2000))
-    console.log("handleSubmit called",name,password);
-    if(name && password){
-      return {message:'Data submitted',name,password};
-    }else{
-      return {error :'Failed to submit. Enter proper data',name,password}
-    }
-  }
-  const [data,action,pending] = useActionState(handleSubmit,undefined);
-  console.log(data);
-  return (
-    <div>
-    <h1>useAction Hook</h1>
-    <form action={action}> 
-        <input defaultValue={data?.name} type="text" placeholder='enter name' name='name'/>
-        <br/><br/>
-        <input defaultValue={data?.password} type="password" placeholder='enter password' name='password'/>
-        <br/><br/>
-        <button disabled={pending}>Submit Data</button>
-        <br/><br/>
+// function App(){
+//   const handleSubmit=async(previousData,formData)=>{
+//     let name = formData.get('name');
+//     let password = formData.get('password');
+//     await new Promise(res=>setTimeout(res,2000))
+//     console.log("handleSubmit called",name,password);
+//     if(name && password){
+//       return {message:'Data submitted',name,password};
+//     }else{
+//       return {error :'Failed to submit. Enter proper data',name,password}
+//     }
+//   }
+//   const [data,action,pending] = useActionState(handleSubmit,undefined);
+//   console.log(data);
+//   return (
+//     <div>
+//     <h1>useAction Hook</h1>
+//     <form action={action}> 
+//         <input defaultValue={data?.name} type="text" placeholder='enter name' name='name'/>
+//         <br/><br/>
+//         <input defaultValue={data?.password} type="password" placeholder='enter password' name='password'/>
+//         <br/><br/>
+//         <button disabled={pending}>Submit Data</button>
+//         <br/><br/>
        
-    </form>
+//     </form>
 
-        {
-          data?.error && <span style={{color:'red'}}>{data?.error}</span>
-        }
-        {
-          data?.message && <span style={{color:'green'}}>{data?.message}</span>
-        }
-        <h3>Name: {data?.name}</h3>
-        <h3>Password: {data?.password}</h3>
-    </div>
+//         {
+//           data?.error && <span style={{color:'red'}}>{data?.error}</span>
+//         }
+//         {
+//           data?.message && <span style={{color:'green'}}>{data?.message}</span>
+//         }
+//         <h3>Name: {data?.name}</h3>
+//         <h3>Password: {data?.password}</h3>
+//     </div>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-21 (useId Hook in React 19)
+// ======================================================
+
+function App(){
+ 
+  return (
+    <>
+    <UserForm/><hr/>
+    <UserForm/><hr/>
+    <UserForm/><hr/>
+    
+    </>
   )
 }
 
+function UserForm(){
+  const name = useId();
+  const password = useId();
+  const terms = useId();
+  const skills = useId();
+  return (
+    <>
+   
+     <form action="">
+      <label htmlFor={name}>Enter username</label>
+      <input id={name} type="text" placeholder='enter name'/>
+      <br/><br/>
+      <label htmlFor={password}>Enter password</label>
+      <input id={password} type="text" placeholder='enter password'/>
+      <br/><br/>
+      <label htmlFor={skills}>Enter skills</label>
+      <input id={skills} type="text" placeholder='enter skills'/>
+      <br/><br/>
+      <input id={terms} type="checkbox" placeholder='enter terms'/>
+      <label htmlFor={terms}>Terms and condition</label>
+     </form>
+    </>
+  )
+}
 export default App
