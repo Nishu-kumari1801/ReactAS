@@ -562,26 +562,37 @@ import UserInput from './UserInput'
 //                 lecture :-16 (useTransition Hook in React JS)
 // ======================================================
 
-function App(){
-  // const [pending,setPending]=useState(false);
-    const [pending,startTransition] = useTransition();
+// function App(){
+//   // const [pending,setPending]=useState(false);
+//     const [pending,startTransition] = useTransition();
 
-  const handleButton=async()=>{
-     startTransition(async()=>{
-      await new Promise(res=>setTimeout(res,2000))
-     })
-    // setPending(true);
+//   const handleButton=async()=>{
+//      startTransition(async()=>{
+//       await new Promise(res=>setTimeout(res,2000))
+//      })
+//     // setPending(true);
     
-    // setPending(false);
+//     // setPending(false);
 
-  }
+//   }
+//   return (
+//     <>
+//     <h1>useTransition Hook in React JS</h1>
+//     <button disabled={pending} onClick={handleButton}>Click</button>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-16 (React JS Pure Component )
+// ======================================================
+
+function App(){
   return (
     <>
-    <h1>useTransition Hook in React JS</h1>
-    <button disabled={pending} onClick={handleButton}>Click</button>
+    <h1>React JS Pure Component </h1>
     </>
   )
 }
-
 
 export default App
