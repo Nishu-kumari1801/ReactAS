@@ -10,6 +10,8 @@ import styled from "styled-components"
 import { Button,Alert } from 'react-bootstrap'
 import User from './User'
 import UserInput from './UserInput'
+import AddUser from './AddUser';
+import DisplayUser from './DisplayUser';
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -606,32 +608,48 @@ import UserInput from './UserInput'
  * No need to extra state only variables or constants are enough.
 */
 
+// function App(){
+//   const [users,setUsers]=useState([]);
+//   const [user,setUser]=useState('');
+//   const handleAddUsers = ()=>{
+//     setUsers([...users,user])
+//   }
+//   // console.log(users);
+
+//   const total=users.length; //derived state
+//   const last = users[users.length-1]
+//   const unique = [...new Set(users)].length
+
+//   return (
+//     <>
+//     <h1> Derived State in React</h1>
+//     <h2>Total User : {total}</h2>
+//     <h2>Last User : {last}</h2>
+//     <h2>Unique Total User : {unique}</h2>
+//     <input type="text" onChange={(event)=>setUser(event.target.value)} placeholder='add new user' />
+//     <button onClick={handleAddUsers}>Add User</button>
+//     {
+//       users.map((item,index)=>(
+//         <h4 key={index}>{item}</h4>
+//       ))
+//     }
+//     </>
+//   )
+// }
+
+
+
+// ======================================================
+//                 lecture :-17 (Lifting State Up)
+// ======================================================
+
 function App(){
-  const [users,setUsers]=useState([]);
-  const [user,setUser]=useState('');
-  const handleAddUsers = ()=>{
-    setUsers([...users,user])
-  }
-  // console.log(users);
-
-  const total=users.length; //derived state
-  const last = users[users.length-1]
-  const unique = [...new Set(users)].length
-
+   const [user,setUser] = useState('')
   return (
-    <>
-    <h1> Derived State in React</h1>
-    <h2>Total User : {total}</h2>
-    <h2>Last User : {last}</h2>
-    <h2>Unique Total User : {unique}</h2>
-    <input type="text" onChange={(event)=>setUser(event.target.value)} placeholder='add new user' />
-    <button onClick={handleAddUsers}>Add User</button>
-    {
-      users.map((item,index)=>(
-        <h4 key={index}>{item}</h4>
-      ))
-    }
-    </>
+    <div>
+      <AddUser setUser={setUser}/>
+      <DisplayUser user={user}/>
+    </div>
   )
 }
 
