@@ -1,4 +1,5 @@
 import { useEffect, useState ,useRef} from 'react'
+import {useFormStatus} from 'react-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -511,18 +512,48 @@ import UserInput from './UserInput'
 //                 lecture :-14 ( ForwardRef in React 19)
 // ======================================================
 
+// function App(){
+//   const inputRef=useRef(null);
+//   const updateInput=()=>{
+//     inputRef.current.value=1000;
+//     inputRef.current.focus();
+//     inputRef.current.style.color="green"
+//   }
+//   return (
+//     <>
+//     <h1> ForwardRef in React 19</h1>
+//     <UserInput ref={inputRef}/>
+//     <button onClick={updateInput}>Update Input field</button>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-15 (useFormStatus Hook)
+// ======================================================
+
 function App(){
-  const inputRef=useRef(null);
-  const updateInput=()=>{
-    inputRef.current.value=1000;
-    inputRef.current.focus();
-    inputRef.current.style.color="green"
+  const handleSubmit= async ()=>{
+    await new Promise(res=>setTimeout(res,2000));
+    console.log("submit");
+  }
+  function CustomForm(){
+    const {pending} =useFormStatus();
+    console.log(pending);
+    return(
+      <>
+      <input type="text" placeholder="Enter name"/><br/><br/>
+       <input type="text" placeholder="Enter password"/><br/><br/>
+       <button disabled={pending}>{pending?'submitting':'submit'}</button>
+      </>
+    )
   }
   return (
     <>
-    <h1> ForwardRef in React 19</h1>
-    <UserInput ref={inputRef}/>
-    <button onClick={updateInput}>Update Input field</button>
+    <h1>useFormStatus Hook</h1>
+    <form action={handleSubmit}>
+       <CustomForm/>
+    </form>
     </>
   )
 }
