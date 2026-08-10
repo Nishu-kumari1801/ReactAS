@@ -17,11 +17,12 @@ import College from './College';
 import ClassComponent from './ClassComponent';
 import Student from './Student';
 import { SubjectContext } from './ContextData';
-import { BrowserRouter ,Routes ,Route,Link } from "react-router";
+import { BrowserRouter ,Routes ,Route,Link, Navigate } from "react-router";
 import Home from './Home';
 import About from './About';
 import Login from './Login';
 import NavBar from './NavBar';
+import PageNotFound from './PgeNotFound';
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -939,6 +940,23 @@ Fragments can be used as parent element and it does not create any extra element
 //                 lecture :-25 (Header with React Router )
 // ======================================================
 
+// function App(){
+//   return (
+//     <>
+//     <NavBar/>
+//     <Routes>
+//        <Route path="/" element={<Home/>} > </Route>
+//        <Route path="/about" element={<About/>} > </Route>
+//        <Route path="/Login" element={<Login/>} > </Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-25 (404 Page and Redirection)
+// ======================================================
+
 function App(){
   return (
     <>
@@ -947,10 +965,11 @@ function App(){
        <Route path="/" element={<Home/>} > </Route>
        <Route path="/about" element={<About/>} > </Route>
        <Route path="/Login" element={<Login/>} > </Route>
+       {/* <Route path="/*" element={<PageNotFound></PageNotFound>}></Route> */}
+       <Route path="/*" element={<Navigate to="/"/>}></Route>
     </Routes>
     </>
   )
 }
-
 
 export default App
