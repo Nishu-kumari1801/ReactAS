@@ -17,6 +17,7 @@ import College from './College';
 import ClassComponent from './ClassComponent';
 import Student from './Student';
 import { SubjectContext } from './ContextData';
+import { BrowserRouter ,Routes ,Route,Link } from "react-router";
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -871,23 +872,47 @@ Fragments can be used as parent element and it does not create any extra element
 //                 lecture :-25 (Context API)
 // ====================================================== 
 
+// function App(){
+//   const [subject,setSubject] = useState('')
+//   return (
+//     <div style={{backgroundColor:'yellow',padding:10}}>
+//     <SubjectContext.Provider value={subject}>
+//       <select value={subject} onChange={(event)=>setSubject(event.target.value)}>
+//         <option value="">Select Subject</option>
+//         <option value="Maths">Maths</option>
+//         <option value="English">English</option>
+//         <option value="Physics">Physics</option>
+//       </select>
+//       <h1>Context API</h1>
+//       <button onClick={()=>setSubject('')}>Clear subject</button>
+//        <College/>
+//     </SubjectContext.Provider>
+//     </div>
+//   )
+// }
+
+
+// ======================================================
+//                 lecture :-25 (React Router)
+// ====================================================== 
+
 function App(){
-  const [subject,setSubject] = useState('')
   return (
-    <div style={{backgroundColor:'yellow',padding:10}}>
-    <SubjectContext.Provider value={subject}>
-      <select value={subject} onChange={(event)=>setSubject(event.target.value)}>
-        <option value="">Select Subject</option>
-        <option value="Maths">Maths</option>
-        <option value="English">English</option>
-        <option value="Physics">Physics</option>
-      </select>
-      <h1>Context API</h1>
-      <button onClick={()=>setSubject('')}>Clear subject</button>
-       <College/>
-    </SubjectContext.Provider>
-    </div>
+    <>
+    <h1>React Router</h1>
+    <BrowserRouter>
+    <Link to="/" >Home</Link>
+    <Link to="/about" >About</Link>
+    <Link to="/contact" >Contact</Link>
+    <Routes>
+      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/about" element={<h1>About</h1>} />
+      <Route path="/contact" element={<h1>Contact</h1>} />
+    </Routes>
+    </BrowserRouter>
+    </>
   )
 }
+
 
 export default App
