@@ -1,5 +1,6 @@
 import { useEffect, useState ,useRef, useTransition, useActionState,useId} from 'react'
 import {useFormStatus} from 'react-dom';
+import useToggle from './useToggle';
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -839,9 +840,25 @@ Fragments can be used as parent element and it does not create any extra element
 // ======================================================
 
 function App(){
+  const [value,toggleValue]=useToggle(true);
+  const [data,setData] = useToggle(true);
+  console.log("val----",value);
   return (
     <>
-    <h1>Make custom hooks</h1>
+    <button onClick={toggleValue}>Toggle Heading</button>
+    <button onClick={()=>toggleValue(false)}>Hide Heading</button>
+    <button onClick={()=>toggleValue(true)}>show Heading</button>
+    {
+      value?<h1>Make custom hooks</h1>:null
+    }
+    <hr/>
+        <button onClick={setData}>Toggle Heading</button>
+    <button onClick={()=>setData(false)}>Hide Heading</button>
+    <button onClick={()=>setData(true)}>show Heading</button>
+    {/* <h1>second heading</h1> */}
+    {
+      data?<h1>second heading</h1>:null
+    }
     </>
   )
 }
