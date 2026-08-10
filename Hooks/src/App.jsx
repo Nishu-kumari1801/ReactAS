@@ -18,6 +18,10 @@ import ClassComponent from './ClassComponent';
 import Student from './Student';
 import { SubjectContext } from './ContextData';
 import { BrowserRouter ,Routes ,Route,Link } from "react-router";
+import Home from './Home';
+import About from './About';
+import Login from './Login';
+import NavBar from './NavBar';
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -896,23 +900,39 @@ Fragments can be used as parent element and it does not create any extra element
 //                 lecture :-25 (React Router)
 // ====================================================== 
 
+// function App(){
+//   return (
+//     <>
+//     <h1>React Router</h1>
+//     <BrowserRouter>
+//     <Link to="/" >Home</Link>
+//     <Link to="/about" >About</Link>
+//     <Link to="/contact" >Contact</Link>
+//     <Routes>
+//       <Route path="/" element={<h1>Home</h1>} />
+//       <Route path="/about" element={<h1>About</h1>} />
+//       <Route path="/contact" element={<h1>Contact</h1>} />
+//     </Routes>
+//     </BrowserRouter>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-25 (Basic Example of React Router)
+// ======================================================
+
 function App(){
   return (
     <>
-    <h1>React Router</h1>
-    <BrowserRouter>
-    <Link to="/" >Home</Link>
-    <Link to="/about" >About</Link>
-    <Link to="/contact" >Contact</Link>
+    <NavBar/>
     <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
-      <Route path="/about" element={<h1>About</h1>} />
-      <Route path="/contact" element={<h1>Contact</h1>} />
+       <Route path="/" element={<Home/>} > </Route>
+       <Route path="/about" element={<About/>} > </Route>
+       <Route path="/Login" element={<Login/>} > </Route>
     </Routes>
-    </BrowserRouter>
     </>
   )
 }
-
 
 export default App
