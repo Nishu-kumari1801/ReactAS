@@ -922,6 +922,23 @@ Fragments can be used as parent element and it does not create any extra element
 //                 lecture :-25 (Basic Example of React Router)
 // ======================================================
 
+// function App(){
+//   return (
+//     <>
+//     <NavBar/>
+//     <Routes>
+//        <Route path="/" element={<Home/>} > </Route>
+//        <Route path="/about" element={<About/>} > </Route>
+//        <Route path="/Login" element={<Login/>} > </Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-25 (Header with React Router )
+// ======================================================
+
 function App(){
   return (
     <>
@@ -934,5 +951,6 @@ function App(){
     </>
   )
 }
+
 
 export default App
