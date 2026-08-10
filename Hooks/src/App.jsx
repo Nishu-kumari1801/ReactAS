@@ -13,6 +13,10 @@ import User from './User'
 import UserInput from './UserInput'
 import AddUser from './AddUser';
 import DisplayUser from './DisplayUser';
+import College from './College';
+import ClassComponent from './ClassComponent';
+import Student from './Student';
+import { SubjectContext } from './ContextData';
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -839,27 +843,51 @@ Fragments can be used as parent element and it does not create any extra element
 //                 lecture :-24 (Make custom Hooks)
 // ======================================================
 
+// function App(){
+//   const [value,toggleValue]=useToggle(true);
+//   const [data,setData] = useToggle(true);
+//   console.log("val----",value);
+//   return (
+//     <>
+//     <button onClick={toggleValue}>Toggle Heading</button>
+//     <button onClick={()=>toggleValue(false)}>Hide Heading</button>
+//     <button onClick={()=>toggleValue(true)}>show Heading</button>
+//     {
+//       value?<h1>Make custom hooks</h1>:null
+//     }
+//     <hr/>
+//         <button onClick={setData}>Toggle Heading</button>
+//     <button onClick={()=>setData(false)}>Hide Heading</button>
+//     <button onClick={()=>setData(true)}>show Heading</button>
+//     {/* <h1>second heading</h1> */}
+//     {
+//       data?<h1>second heading</h1>:null
+//     }
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-25 (Context API)
+// ====================================================== 
+
 function App(){
-  const [value,toggleValue]=useToggle(true);
-  const [data,setData] = useToggle(true);
-  console.log("val----",value);
+  const [subject,setSubject] = useState('')
   return (
-    <>
-    <button onClick={toggleValue}>Toggle Heading</button>
-    <button onClick={()=>toggleValue(false)}>Hide Heading</button>
-    <button onClick={()=>toggleValue(true)}>show Heading</button>
-    {
-      value?<h1>Make custom hooks</h1>:null
-    }
-    <hr/>
-        <button onClick={setData}>Toggle Heading</button>
-    <button onClick={()=>setData(false)}>Hide Heading</button>
-    <button onClick={()=>setData(true)}>show Heading</button>
-    {/* <h1>second heading</h1> */}
-    {
-      data?<h1>second heading</h1>:null
-    }
-    </>
+    <div style={{backgroundColor:'yellow',padding:10}}>
+    <SubjectContext.Provider value={subject}>
+      <select value={subject} onChange={(event)=>setSubject(event.target.value)}>
+        <option value="">Select Subject</option>
+        <option value="Maths">Maths</option>
+        <option value="English">English</option>
+        <option value="Physics">Physics</option>
+      </select>
+      <h1>Context API</h1>
+      <button onClick={()=>setSubject('')}>Clear subject</button>
+       <College/>
+    </SubjectContext.Provider>
+    </div>
   )
 }
+
 export default App
