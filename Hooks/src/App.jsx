@@ -23,6 +23,8 @@ import About from './About';
 import Login from './Login';
 import NavBar from './NavBar';
 import PageNotFound from './PgeNotFound';
+import Department from './Department';
+import Details from './Details';
 
 // ======================================================
 //                 lecture :-01 (What are Hooks in React)
@@ -957,6 +959,25 @@ Fragments can be used as parent element and it does not create any extra element
 //                 lecture :-25 (404 Page and Redirection)
 // ======================================================
 
+// function App(){
+//   return (
+//     <>
+//     <NavBar/>
+//     <Routes>
+//        <Route path="/" element={<Home/>} > </Route>
+//        <Route path="/about" element={<About/>} > </Route>
+//        <Route path="/Login" element={<Login/>} > </Route>
+//        {/* <Route path="/*" element={<PageNotFound></PageNotFound>}></Route> */}
+//        <Route path="/*" element={<Navigate to="/"/>}></Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-25 (Nested Navigation with React Router )
+// ======================================================
+
 function App(){
   return (
     <>
@@ -965,11 +986,17 @@ function App(){
        <Route path="/" element={<Home/>} > </Route>
        <Route path="/about" element={<About/>} > </Route>
        <Route path="/Login" element={<Login/>} > </Route>
+       <Route path="/college" element={<College/>} > 
+       <Route path="student" element={<Student/>}/>
+       <Route path="department" element={<Department/>}/>
+       <Route path="details" element={<Details/>}/>
+       </Route>
        {/* <Route path="/*" element={<PageNotFound></PageNotFound>}></Route> */}
        <Route path="/*" element={<Navigate to="/"/>}></Route>
     </Routes>
     </>
   )
 }
+
 
 export default App
