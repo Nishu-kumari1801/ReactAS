@@ -900,7 +900,7 @@ Fragments can be used as parent element and it does not create any extra element
 
 
 // ======================================================
-//                 lecture :-25 (React Router)
+//                 lecture :-26 (React Router)
 // ====================================================== 
 
 // function App(){
@@ -922,7 +922,7 @@ Fragments can be used as parent element and it does not create any extra element
 // }
 
 // ======================================================
-//                 lecture :-25 (Basic Example of React Router)
+//                 lecture :-27 (Basic Example of React Router)
 // ======================================================
 
 // function App(){
@@ -939,7 +939,7 @@ Fragments can be used as parent element and it does not create any extra element
 // }
 
 // ======================================================
-//                 lecture :-25 (Header with React Router )
+//                 lecture :-28 (Header with React Router )
 // ======================================================
 
 // function App(){
@@ -956,7 +956,7 @@ Fragments can be used as parent element and it does not create any extra element
 // }
 
 // ======================================================
-//                 lecture :-25 (404 Page and Redirection)
+//                 lecture :-29 (404 Page and Redirection)
 // ======================================================
 
 // function App(){
@@ -975,17 +975,44 @@ Fragments can be used as parent element and it does not create any extra element
 // }
 
 // ======================================================
-//                 lecture :-25 (Nested Navigation with React Router )
+//                 lecture :-30 (Nested Navigation with React Router )
+// ======================================================
+
+// function App(){
+//   return (
+//     <>
+//     <NavBar/>
+//     <Routes>
+//        <Route path="/" element={<Home/>} > </Route>
+//        <Route path="/about" element={<About/>} > </Route>
+//        <Route path="/Login" element={<Login/>} > </Route>
+//        <Route path="/college" element={<College/>} > 
+//        <Route path="student" element={<Student/>}/>
+//        <Route path="department" element={<Department/>}/>
+//        <Route path="details" element={<Details/>}/>
+//        </Route>
+//        {/* <Route path="/*" element={<PageNotFound></PageNotFound>}></Route> */}
+//        <Route path="/*" element={<Navigate to="/"/>}></Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-31 (Layout and Index Routes)
 // ======================================================
 
 function App(){
   return (
     <>
-    <NavBar/>
+    {/* <NavBar/> */}
     <Routes>
-       <Route path="/" element={<Home/>} > </Route>
+      <Route element={<NavBar/>}>
+      <Route path="/" element={<Home/>} > </Route>
        <Route path="/about" element={<About/>} > </Route>
        <Route path="/Login" element={<Login/>} > </Route>
+       </Route>
+       
        <Route path="/college" element={<College/>} > 
        <Route path="student" element={<Student/>}/>
        <Route path="department" element={<Department/>}/>
@@ -997,6 +1024,4 @@ function App(){
     </>
   )
 }
-
-
 export default App
