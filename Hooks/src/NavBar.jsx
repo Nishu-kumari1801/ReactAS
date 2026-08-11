@@ -1,45 +1,45 @@
-import { Link, Outlet } from "react-router";
+import { NavLink, Outlet } from "react-router";
 import './header.css';
 export default function NavBar() {
   return (
     <div>
     <div className="header">
       <div>
-        <Link className="link" to="/">
+        <NavLink className="NavLink" to="/">
           <h2>Logo</h2>
-        </Link>
+        </NavLink>
       </div>
       <div>
         <ul>
           <li>
-            <Link className="link" to="/">
+            <NavLink className="NavLink" to="/">
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="link" to="/login">
+            <NavLink className="NavLink" to="/login">
               Login
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="link" to="/about">
+            <NavLink className="NavLink" to="/about">
               About
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="link" to="/college">
+            <NavLink className="NavLink" to="/college">
               College
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="link" to="/users">
+            <NavLink className="NavLink" to="/users">
               Users
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="link" to="/users/list">
+            <NavLink className="NavLink" to="/users/list">
               List
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

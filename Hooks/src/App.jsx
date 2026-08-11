@@ -1088,6 +1088,37 @@ Fragments can be used as parent element and it does not create any extra element
 //                 lecture :-33 (React Router Optional Segment)
 // ======================================================
 
+// function App(){
+//   return (
+//     <>
+//     {/* <NavBar/> */}
+//     <Routes>
+//       <Route element={<NavBar/>}>
+//       <Route path="/" element={<Home/>} > </Route>
+//        <Route path="/about" element={<About/>} > </Route>
+//        <Route path="/Login" element={<Login/>} > </Route>
+//        <Route path="/users/list?" element={<UserList/>}/>
+//        {/* <Route path="/users/list" element={<UserList/>}/> */}
+//        <Route path='/users/:id/:name?' element={<UserDetail/>}/>
+//        {/* <Route path='/users/:id/:name' element={<UserDetail/>}/> */}
+//        </Route>
+       
+//        <Route path="/college" element={<College/>} > 
+//        <Route path="student" element={<Student/>}/>
+//        <Route path="department" element={<Department/>}/>
+//        <Route path="details" element={<Details/>}/>
+//        </Route>
+//        {/* <Route path="/*" element={<PageNotFound></PageNotFound>}></Route> */}
+//        <Route path="/*" element={<Navigate to="/"/>}></Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-33 (React Router NavLink and Active Class )
+// ======================================================
+
 function App(){
   return (
     <>
@@ -1114,6 +1145,5 @@ function App(){
     </>
   )
 }
-
 
 export default App
