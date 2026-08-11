@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useNavigate } from "react-router";
 
 function UserList(){
 
   const [userData,setUserData]=useState([]);
   const [loading,setLoading]=useState(false);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     setLoading(true);
@@ -29,7 +31,11 @@ function UserList(){
         alert("record deleted");
         getUserData();
     }
-    console.log(id);
+    // console.log(id);
+  }
+
+  const editUser=(id)=>{
+      navigate("/edit/"+id);
   }
   return (
     <>
@@ -46,7 +52,10 @@ function UserList(){
           <li>{user.name}</li>
           <li>{user.age}</li>
           <li>{user.email}</li>
-          <li><button onClick={()=>deleteUser(user.id)}>Delete</button></li>
+          <li>
+            <button onClick={()=>deleteUser(user.id)}>Delete</button>
+            <button onClick={()=>editUser(user.id)}>Edit</button>
+            </li>
          </ul>
       ))
       :<h1>Data Loading....</h1>

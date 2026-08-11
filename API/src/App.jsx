@@ -8,6 +8,7 @@ import UserList from './UserList'
 import UserAdd from './UserAdd'
 import {Routes,Route} from 'react-router';
 import {Link , NavLink} from 'react-router'
+import UserEdit from './UserEdit'
 
 // ======================================================
 //                 lecture :-01 (What is API)
@@ -182,7 +183,13 @@ import {Link , NavLink} from 'react-router'
 //                 lecture :-07 ( Integrate API for POST Method)
 // ======================================================
 
+ //======================================================
+//                 lecture :-08 ( Integrate API for DELETE Method)
+// ======================================================
 
+ //======================================================
+//                 lecture :-09 ( Integrate API for Edit Method)
+// ======================================================
 
 function App(){
 
@@ -201,6 +208,7 @@ function App(){
     <Routes>
       <Route path="/" element={<UserList/>}></Route>
       <Route path="/add" element={<UserAdd/>}></Route>
+      <Route path="/edit/:id" element={<UserEdit/>}></Route>
     </Routes>
     </>
   )
