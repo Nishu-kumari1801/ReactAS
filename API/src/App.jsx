@@ -44,40 +44,57 @@ import { useEffect } from 'react'
 /**Test API :- postman usually or on vs code use extension thunderClient */
 /**Integrate API :-  */
 
-function App() {
-  const [usersData , setUsersData]=useState([]);
-  useEffect(()=>{
-     getUsersData();
-  },[])
-  async function getUsersData(){
-    const url="https://dummyjson.com/users";
-    let response=await fetch(url);
-    response = await response.json();
-    // console.log(response.users);
-    setUsersData(response.users)
-  }
-  console.log(usersData);
+// function App() {
+//   const [usersData , setUsersData]=useState([]);
+//   useEffect(()=>{
+//      getUsersData();
+//   },[])
+//   async function getUsersData(){
+//     const url="https://dummyjson.com/users";
+//     let response=await fetch(url);
+//     response = await response.json();
+//     // console.log(response.users);
+//     setUsersData(response.users)
+//   }
+//   console.log(usersData);
+//   return (
+//     <>
+//      <h1>Get Data from GET API Method in React</h1>
+//      <ul className='user-list-head'>
+//           <li>FirstName</li>
+//           <li>LastName</li>
+//           <li>Age</li>
+//       </ul>
+//      {
+//       usersData && usersData.map((user)=>(
+//          <ul className='user-list'>
+//           <li>{user.firstName}</li>
+//           <li>{user.lastName}</li>
+//           <li>{user.age}</li>
+//          </ul>
+//       ))
+//      }
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-03 (Setup JSON Server for API )
+// ======================================================
+
+/**
+ * 
+ * json Server is a tool to create api this tools are used as 
+ * the public online available api work on get method mostly so we need this
+ */
+ /**[install json server , make db.json file , run json server , make users API , test api with thunderClient] */
+ 
+function App(){
   return (
     <>
-     <h1>Get Data from GET API Method in React</h1>
-     <ul className='user-list-head'>
-          <li>FirstName</li>
-          <li>LastName</li>
-          <li>Age</li>
-      </ul>
-     {
-      usersData && usersData.map((user)=>(
-         <ul className='user-list'>
-          <li>{user.firstName}</li>
-          <li>{user.lastName}</li>
-          <li>{user.age}</li>
-         </ul>
-      ))
-     }
+    <h1>Setup JSON Server for API</h1>
     </>
   )
 }
-
-
 
 export default App
