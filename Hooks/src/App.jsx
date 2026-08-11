@@ -1056,7 +1056,36 @@ Fragments can be used as parent element and it does not create any extra element
 // }
 
 // ======================================================
-//                 lecture :-32 (Dynamic Router in React JS)
+//                 lecture :-33 (Dynamic Router in React JS)
+// ======================================================
+
+// function App(){
+//   return (
+//     <>
+//     {/* <NavBar/> */}
+//     <Routes>
+//       <Route element={<NavBar/>}>
+//       <Route path="/" element={<Home/>} > </Route>
+//        <Route path="/about" element={<About/>} > </Route>
+//        <Route path="/Login" element={<Login/>} > </Route>
+//        <Route path="/users" element={<UserList/>}/>
+//        <Route path='/users/:id' element={<UserDetail/>}/>
+//        </Route>
+       
+//        <Route path="/college" element={<College/>} > 
+//        <Route path="student" element={<Student/>}/>
+//        <Route path="department" element={<Department/>}/>
+//        <Route path="details" element={<Details/>}/>
+//        </Route>
+//        {/* <Route path="/*" element={<PageNotFound></PageNotFound>}></Route> */}
+//        <Route path="/*" element={<Navigate to="/"/>}></Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+// ======================================================
+//                 lecture :-33 (React Router Optional Segment)
 // ======================================================
 
 function App(){
@@ -1068,8 +1097,10 @@ function App(){
       <Route path="/" element={<Home/>} > </Route>
        <Route path="/about" element={<About/>} > </Route>
        <Route path="/Login" element={<Login/>} > </Route>
-       <Route path="/users" element={<UserList/>}/>
-       <Route path='/users/:id' element={<UserDetail/>}/>
+       <Route path="/users/list?" element={<UserList/>}/>
+       {/* <Route path="/users/list" element={<UserList/>}/> */}
+       <Route path='/users/:id/:name?' element={<UserDetail/>}/>
+       {/* <Route path='/users/:id/:name' element={<UserDetail/>}/> */}
        </Route>
        
        <Route path="/college" element={<College/>} > 
@@ -1083,5 +1114,6 @@ function App(){
     </>
   )
 }
+
 
 export default App
