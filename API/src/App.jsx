@@ -103,7 +103,7 @@ import {Link , NavLink} from 'react-router'
 
 
 // ======================================================
-//                 lecture :-04 (Integrate JSON Server APIs and Display Data)
+//                 lecture :-05 (Integrate JSON Server APIs and Display Data)
 // ======================================================
 
 /**[make function for API call,Display data for UI from API,common error fix,make loading state,display loader]  */
@@ -149,13 +149,41 @@ import {Link , NavLink} from 'react-router'
 // }
 
 // ======================================================
-//                 lecture :-04 (Add User and User List Routes for APIs)
+//                 lecture :-06 (Add User and User List Routes for APIs)
 // ======================================================
 
 
 /**[make browserRouter wrapper around the app , make routes , make components,make links
  * test link , route and screens ]
 ] */
+// function App(){
+
+//   return (
+//     <>
+//      <ul className='nav-list'>
+//       <li>
+//         <NavLink to="/">List</NavLink>
+//       </li>
+//       <li>
+//         <NavLink to="/add">Add User</NavLink>
+//       </li>
+//      </ul>
+//     {/* <h1>Make routes pages for add User and user list UI</h1> */}
+//     {/* <UserList/> */}
+//     <Routes>
+//       <Route path="/" element={<UserList/>}></Route>
+//       <Route path="/add" element={<UserAdd/>}></Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+ //======================================================
+//                 lecture :-07 ( Integrate API for POST Method)
+// ======================================================
+
+
+
 function App(){
 
   return (
