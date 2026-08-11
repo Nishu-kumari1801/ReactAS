@@ -6,6 +6,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import Counter from './Counter'
 import './css/style.css'
+import './index.css'
 import UserProfile from './UserProfile'
 import styled from "styled-components"
 import { Button,Alert } from 'react-bootstrap'
@@ -1116,32 +1117,16 @@ Fragments can be used as parent element and it does not create any extra element
 // }
 
 // ======================================================
-//                 lecture :-33 (React Router NavLink and Active Class )
+//                 lecture :-33 (Install Tailwind CSS in React App)
 // ======================================================
 
 function App(){
   return (
     <>
-    {/* <NavBar/> */}
-    <Routes>
-      <Route element={<NavBar/>}>
-      <Route path="/" element={<Home/>} > </Route>
-       <Route path="/about" element={<About/>} > </Route>
-       <Route path="/Login" element={<Login/>} > </Route>
-       <Route path="/users/list?" element={<UserList/>}/>
-       {/* <Route path="/users/list" element={<UserList/>}/> */}
-       <Route path='/users/:id/:name?' element={<UserDetail/>}/>
-       {/* <Route path='/users/:id/:name' element={<UserDetail/>}/> */}
-       </Route>
-       
-       <Route path="/college" element={<College/>} > 
-       <Route path="student" element={<Student/>}/>
-       <Route path="department" element={<Department/>}/>
-       <Route path="details" element={<Details/>}/>
-       </Route>
-       {/* <Route path="/*" element={<PageNotFound></PageNotFound>}></Route> */}
-       <Route path="/*" element={<Navigate to="/"/>}></Route>
-    </Routes>
+    <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+  <h2 className='bg-red-700 text-3xl border-green-600 border-5'>Tailwind CSS in React App </h2>
     </>
   )
 }
