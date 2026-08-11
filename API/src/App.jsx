@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import { useEffect } from 'react'
 
 // ======================================================
 //                 lecture :-01 (What is API)
@@ -37,10 +38,42 @@ import './App.css'
 //                 lecture :-02 (Get Data from GET API Method in React)
 // ======================================================
 
+/**[API methods , test API , Integrate API , Display API data , ] */
+
+/**API methods :- GET , POST, PUT/PATCH, DELETE */
+/**Test API :- postman usually or on vs code use extension thunderClient */
+/**Integrate API :-  */
+
 function App() {
+  const [usersData , setUsersData]=useState([]);
+  useEffect(()=>{
+     getUsersData();
+  },[])
+  async function getUsersData(){
+    const url="https://dummyjson.com/users";
+    let response=await fetch(url);
+    response = await response.json();
+    // console.log(response.users);
+    setUsersData(response.users)
+  }
+  console.log(usersData);
   return (
     <>
      <h1>Get Data from GET API Method in React</h1>
+     <ul className='user-list-head'>
+          <li>FirstName</li>
+          <li>LastName</li>
+          <li>Age</li>
+      </ul>
+     {
+      usersData && usersData.map((user)=>(
+         <ul className='user-list'>
+          <li>{user.firstName}</li>
+          <li>{user.lastName}</li>
+          <li>{user.age}</li>
+         </ul>
+      ))
+     }
     </>
   )
 }
