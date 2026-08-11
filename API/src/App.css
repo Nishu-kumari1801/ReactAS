@@ -14,3 +14,10 @@
   font-weight:800;
   list-style: none;
 }
+
+.nav-list{
+  display: flex;
+  width: 400px;
+  justify-content: space-around;
+  list-style: none;
+}
