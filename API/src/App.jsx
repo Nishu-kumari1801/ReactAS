@@ -88,11 +88,58 @@ import { useEffect } from 'react'
  * the public online available api work on get method mostly so we need this
  */
  /**[install json server , make db.json file , run json server , make users API , test api with thunderClient] */
- 
+
+// function App(){
+//   return (
+//     <>
+//     <h1>Setup JSON Server for API</h1>
+//     </>
+//   )
+// }
+
+
+// ======================================================
+//                 lecture :-04 (Integrate JSON Server APIs and Display Data)
+// ======================================================
+
+/**[make function for API call,Display data for UI from API,common error fix,make loading state,display loader]  */
 function App(){
+
+  const [userData,setUserData]=useState([]);
+  const [loading,setLoading]=useState(false);
+
+  useEffect(()=>{
+    setLoading(true);
+    getUserData();
+  },[])
+
+  const getUserData = async()=>{
+    const url = "http://localhost:3000/users";
+    let response = await fetch(url);
+    response=await response.json();
+    console.log(response);
+    setUserData(response);
+    setLoading(false);
+  }
   return (
     <>
     <h1>Setup JSON Server for API</h1>
+      <ul className='user-list user-list-head'>
+          <li>Name</li>
+          <li>Age</li>
+          <li>Email</li>
+      </ul>
+    {
+      !loading?
+      userData.map((user)=>(
+         <ul key={user.name} className='user-list'>
+          <li>{user.name}</li>
+          <li>{user.age}</li>
+          <li>{user.email}</li>
+         </ul>
+      ))
+      :<h1>Data Loading....</h1>
+    }
     </>
   )
 }
