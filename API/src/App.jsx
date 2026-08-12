@@ -222,26 +222,68 @@ import UserEdit from './UserEdit'
 //                 lecture :-11 (Integrate PUT API for Update Data)
 // ======================================================
 
+// function App(){
+
+//   return (
+//     <>
+//      <ul className='nav-list'>
+//       <li>
+//         <NavLink to="/">List</NavLink>
+//       </li>
+//       <li>
+//         <NavLink to="/add">Add User</NavLink>
+//       </li>
+//      </ul>
+//     {/* <h1>Make routes pages for add User and user list UI</h1> */}
+//     {/* <UserList/> */}
+//     <Routes>
+//       <Route path="/" element={<UserList/>}></Route>
+//       <Route path="/add" element={<UserAdd/>}></Route>
+//       <Route path="/edit/:id" element={<UserEdit/>}></Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+//======================================================
+//                 lecture :-12 (Simple Validation in React Forms)
+// ======================================================
+
 function App(){
 
+  const [name,setName]=useState('');
+  const [nameErr,setNameErr]=useState('');
+
+  const [password,setPassword]=useState('');
+  const [passwordErr,setPasswordErr]=useState('');
+
+  const handleName=(event)=>{
+    console.log(event.target.value);
+    if(event.target.value.length>5){
+      setNameErr("Please enter valid username . Only 5 characters allowed");
+    }else{
+      setNameErr();
+    }
+  }
+
+  const handlePassword=(event)=>{
+    let regex =/^[A-Z0-9]+$/i;
+    if(!regex.test(event.target.value)){
+      setPasswordErr("Please enter valid password . Only numbers and alphabets allowed");
+    }else{
+      setPasswordErr();
+    }
+  }
+
+
   return (
-    <>
-     <ul className='nav-list'>
-      <li>
-        <NavLink to="/">List</NavLink>
-      </li>
-      <li>
-        <NavLink to="/add">Add User</NavLink>
-      </li>
-     </ul>
-    {/* <h1>Make routes pages for add User and user list UI</h1> */}
-    {/* <UserList/> */}
-    <Routes>
-      <Route path="/" element={<UserList/>}></Route>
-      <Route path="/add" element={<UserAdd/>}></Route>
-      <Route path="/edit/:id" element={<UserEdit/>}></Route>
-    </Routes>
-    </>
+   <div>
+    <input className={nameErr?'error':''} type="text" onChange={handleName} placeholder='enter name' />
+    <span>{nameErr && nameErr}</span><br/><br/>
+    <input className={passwordErr?'error':''} type="text" onChange={handlePassword} placeholder='enter password' />
+    <span className='red-color'>{passwordErr && passwordErr}</span><br/><br/>
+    <button disabled={passwordErr||nameErr}>Login</button>
+   </div>
   )
 }
 
