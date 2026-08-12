@@ -195,6 +195,33 @@ import UserEdit from './UserEdit'
 //                 lecture :-10 (Populate Data in Input Fields with API )
 // ======================================================
 
+// function App(){
+
+//   return (
+//     <>
+//      <ul className='nav-list'>
+//       <li>
+//         <NavLink to="/">List</NavLink>
+//       </li>
+//       <li>
+//         <NavLink to="/add">Add User</NavLink>
+//       </li>
+//      </ul>
+//     {/* <h1>Make routes pages for add User and user list UI</h1> */}
+//     {/* <UserList/> */}
+//     <Routes>
+//       <Route path="/" element={<UserList/>}></Route>
+//       <Route path="/add" element={<UserAdd/>}></Route>
+//       <Route path="/edit/:id" element={<UserEdit/>}></Route>
+//     </Routes>
+//     </>
+//   )
+// }
+
+ //======================================================
+//                 lecture :-11 (Integrate PUT API for Update Data)
+// ======================================================
+
 function App(){
 
   return (

@@ -1,4 +1,4 @@
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import { useEffect,useState} from "react";
 function UserEdit(){
     const {id}=useParams();
@@ -6,6 +6,8 @@ function UserEdit(){
     const [name,setName] = useState('');
     const [age,setAge] = useState('');
     const [email,setEmail] = useState('');
+    const url = "http://localhost:3000/users/"+id;
+    const navigate=useNavigate();
 
     useEffect(()=>{
        getUserData()
@@ -13,7 +15,7 @@ function UserEdit(){
 
      const getUserData=async ()=>{
         console.log(id);
-        const url = "http://localhost:3000/users/"+id;
+       
         let response = await fetch(url);
         response = await response.json();
         console.log(response);
@@ -21,16 +23,30 @@ function UserEdit(){
         setEmail(response.email);
         setAge(response.age);
      }
+
+     const updateUserData=async()=>{
+        // console.log(name,age,email);
+        let response = await fetch(url,{
+            method:'PUT',
+            body:JSON.stringify({name,age,email})
+        });
+        response=await response.json();
+        // console.log(response);
+        if(response) {
+            // alert("User data updated");
+            navigate('/');
+        }
+     }
     return (
         <div style={{textAlign:'center'}}>
             <h1>Edit User Details</h1>
-            <input type="text" key={name} value={name} placeholder="user name" />
+            <input type="text" value={name} onChange={(event)=>setName(event.target.value)} placeholder="user name" />
             <br/><br/>
-            <input type="text" key={name} value={email} placeholder="user email" />
+            <input type="text" value={email} onChange={(event)=>setEmail(event.target.value)} placeholder="user email" />
             <br/><br/>
-            <input type="text" key={name} value={age} placeholder="user age" />
+            <input type="text" value={age} onChange={(event)=>setAge(event.target.value)} placeholder="user age" />
             <br/><br/>
-            <button>Update User</button>
+            <button onClick={updateUserData}>Update User</button>
         </div>
     )
 }
