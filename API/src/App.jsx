@@ -1,4 +1,4 @@
-import { useActionState, useReducer, useState } from 'react'
+import { lazy, Suspense, useActionState, useReducer, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -9,6 +9,8 @@ import UserAdd from './UserAdd'
 import {Routes,Route} from 'react-router';
 import {Link , NavLink} from 'react-router'
 import UserEdit from './UserEdit'
+// import User from './User'
+const User=lazy(()=>import('./User'));
 
 // ======================================================
 //                 lecture :-01 (What is API)
@@ -331,41 +333,59 @@ import UserEdit from './UserEdit'
 
 
 //======================================================
-//                 lecture :-13 (React 19 useReducer Hook )
+//                 lecture :-14 (React 19 useReducer Hook )
 // ======================================================
 
-const emptyData={
-  name:'',
-  password:'',
-  email:'',
-  city:'',
-  address:''
-}
+// const emptyData={
+//   name:'',
+//   password:'',
+//   email:'',
+//   city:'',
+//   address:''
+// }
 
-const reducer=(data,action)=>{
-  return {... data, [action.type]:action.val}
-}
+// const reducer=(data,action)=>{
+//   return {... data, [action.type]:action.val}
+// }
+
+// function App() {
+//   const [state,dispatch]=useReducer(reducer,emptyData)
+//   console.log(state);
+//   return (
+//     <div>
+//      <h1>React 19 useReducer Hook </h1>
+//      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'name'})} placeholder="enter name" /><br/><br/>
+//      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'password'})} placeholder="enter password" /><br/><br/>
+//      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'email'})} placeholder="enter email" /><br/><br/>
+//      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'city'})} placeholder="enter city" /><br/><br/>
+//      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'address'})} placeholder="enter address" /><br/><br/>
+
+//      <ul>
+//       <li>Name:{state.name}</li>
+//       <li>Password:{state.passowrd}</li>
+//       <li>Email:{state.email}</li>
+//       <li>City:{state.city}</li>
+//       <li>Address:{state.address}</li>
+//      </ul>
+//      <button onClick={()=>console.log(state)}>Add details</button>
+//     </div>
+//   );
+// }
+
+//======================================================
+//                 lecture :-15 (Lazy Loading in React)
+// ======================================================
+
 
 function App() {
-  const [state,dispatch]=useReducer(reducer,emptyData)
-  console.log(state);
+ const [load,setLoad]=useState(false);
   return (
     <div>
-     <h1>React 19 useReducer Hook </h1>
-     <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'name'})} placeholder="enter name" /><br/><br/>
-     <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'password'})} placeholder="enter password" /><br/><br/>
-     <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'email'})} placeholder="enter email" /><br/><br/>
-     <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'city'})} placeholder="enter city" /><br/><br/>
-     <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'address'})} placeholder="enter address" /><br/><br/>
-
-     <ul>
-      <li>Name:{state.name}</li>
-      <li>Password:{state.passowrd}</li>
-      <li>Email:{state.email}</li>
-      <li>City:{state.city}</li>
-      <li>Address:{state.address}</li>
-     </ul>
-     <button onClick={()=>console.log(state)}>Add details</button>
+     <h1>Lazy Loading in React</h1>
+     {
+      load?<Suspense fallback={<h3>Loading...</h3>}><User/></Suspense>:null
+     }
+     <button onClick={()=>setLoad(true)}>Load User</button>
     </div>
   );
 }
