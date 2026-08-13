@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useActionState, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -249,42 +249,83 @@ import UserEdit from './UserEdit'
 //                 lecture :-12 (Simple Validation in React Forms)
 // ======================================================
 
-function App(){
+// function App(){
 
-  const [name,setName]=useState('');
-  const [nameErr,setNameErr]=useState('');
+//   const [name,setName]=useState('');
+//   const [nameErr,setNameErr]=useState('');
 
-  const [password,setPassword]=useState('');
-  const [passwordErr,setPasswordErr]=useState('');
+//   const [password,setPassword]=useState('');
+//   const [passwordErr,setPasswordErr]=useState('');
 
-  const handleName=(event)=>{
-    console.log(event.target.value);
-    if(event.target.value.length>5){
-      setNameErr("Please enter valid username . Only 5 characters allowed");
-    }else{
-      setNameErr();
-    }
-  }
+//   const handleName=(event)=>{
+//     console.log(event.target.value);
+//     if(event.target.value.length>5){
+//       setNameErr("Please enter valid username . Only 5 characters allowed");
+//     }else{
+//       setNameErr();
+//     }
+//   }
 
-  const handlePassword=(event)=>{
+//   const handlePassword=(event)=>{
+//     let regex =/^[A-Z0-9]+$/i;
+//     if(!regex.test(event.target.value)){
+//       setPasswordErr("Please enter valid password . Only numbers and alphabets allowed");
+//     }else{
+//       setPasswordErr();
+//     }
+//   }
+
+
+//   return (
+//    <div>
+//     <input className={nameErr?'error':''} type="text" onChange={handleName} placeholder='enter name' />
+//     <span>{nameErr && nameErr}</span><br/><br/>
+//     <input className={passwordErr?'error':''} type="text" onChange={handlePassword} placeholder='enter password' />
+//     <span className='red-color'>{passwordErr && passwordErr}</span><br/><br/>
+//     <button disabled={passwordErr||nameErr}>Login</button>
+//    </div>
+//   )
+// }
+
+//======================================================
+//                 lecture :-13 (Validation with useActionState Hook)
+// ======================================================
+
+function App() {
+  const handleLogin = (prevData, formData) => {
+    let name = formData.get('name');
+    let password = formData.get('password');
     let regex =/^[A-Z0-9]+$/i;
-    if(!regex.test(event.target.value)){
-      setPasswordErr("Please enter valid password . Only numbers and alphabets allowed");
+    if(!name || name.length>5){
+       return {error:'Name cannot be empty or Name should not contain more than 5 characters',name,password}
+    }else if(!regex.test(password)){
+       return {error:'Password can only numbers and alphabets',name,password}
     }else{
-      setPasswordErr();
+       return {message:'Login done',name,password}
     }
-  }
+    console.log(name, password);
+  };
+
+  const [data, action, pending] = useActionState(handleLogin);
 
 
   return (
-   <div>
-    <input className={nameErr?'error':''} type="text" onChange={handleName} placeholder='enter name' />
-    <span>{nameErr && nameErr}</span><br/><br/>
-    <input className={passwordErr?'error':''} type="text" onChange={handlePassword} placeholder='enter password' />
-    <span className='red-color'>{passwordErr && passwordErr}</span><br/><br/>
-    <button disabled={passwordErr||nameErr}>Login</button>
-   </div>
-  )
+    <div>
+      <h1>Validation with useActionState Hook</h1>
+      {
+        data?.mesaage && <span style={{color:'green'}}>{data?.message}</span>
+      }
+      {
+        data?.error && <span style={{color:'red'}}>{data?.error}</span>
+      }
+      <form action={action}>
+        <input type="text" defaultValue={data?.name} name="name" placeholder="enter username" />
+        <br /><br />
+        <input type="password" defaultValue={data?.password} name="password" placeholder="enter password" />
+        <br /><br />
+        <button>Login</button>
+      </form>
+    </div>
+  );
 }
-
 export default App
