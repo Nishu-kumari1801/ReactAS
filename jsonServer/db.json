@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "name": "nishu",
-      "age": 19,
-      "email": "nishu@test.com",
-      "id": "HIDe70oFcco"
-    },
-    {
       "name": "sam",
       "age": 9,
       "email": "sam@test.com",
@@ -19,28 +13,22 @@
       "id": "mGzgWQTCmpA"
     },
     {
-      "name": "peter",
-      "age": 30,
-      "email": "peter@test.com",
-      "id": "HJ6rGTKkdZs"
-    },
-    {
       "name": "david",
       "age": 22,
       "email": "david@test.com",
       "id": "RGQoqccRHac"
     },
     {
-      "name": "nishu",
-      "email": "nishu@test.com",
+      "name": "peter",
+      "email": "peter@test.com",
       "age": "78",
-      "id": "OaFjAYhNSV0"
+      "id": "Piat2vmUTV0"
     },
     {
-      "name": "Anil",
-      "email": "Anil@test.com",
-      "age": "34",
-      "id": "UbSHqHDskT0"
+      "name": "nishu",
+      "age": "67",
+      "email": "nishu@test.com",
+      "id": "FFMgtDYWFcU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
