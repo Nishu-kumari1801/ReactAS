@@ -1,4 +1,4 @@
-import { lazy, Suspense, useActionState, useReducer, useState } from 'react'
+import { lazy, Suspense, useActionState, useReducer, useState , use } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -377,16 +377,63 @@ const User=lazy(()=>import('./User'));
 // ======================================================
 
 
+// function App() {
+//  const [load,setLoad]=useState(false);
+//   return (
+//     <div>
+//      <h1>Lazy Loading in React</h1>
+//      {
+//       load?<Suspense fallback={<h3>Loading...</h3>}><User/></Suspense>:null
+//      }
+//      <button onClick={()=>setLoad(true)}>Load User</button>
+//     </div>
+//   );
+// }
+
+
+//======================================================
+//                 lecture :-15 (React 19 use API with Example)
+// ======================================================
+
+
+// use API is not hook but it is an API  developed in react 18 but become handy to use in react 19. 
+/**
+ * 
+ * New feature in react 19
+ * use can handle promise and return data from promises
+ * we should use 'USE API' with suspense
+ * 'USE API' can use to handle context api also
+ * USE API reduces rendering of component as compare to useEffect
+ */
+
+const fetchData = ()=>fetch('https://dummyjson.com/users')
+.then((response)=>response.json());
+
+const userResource = fetchData();
+
 function App() {
- const [load,setLoad]=useState(false);
   return (
     <div>
-     <h1>Lazy Loading in React</h1>
-     {
-      load?<Suspense fallback={<h3>Loading...</h3>}><User/></Suspense>:null
-     }
-     <button onClick={()=>setLoad(true)}>Load User</button>
+     <h1>use API in React Js</h1>
+     <Suspense fallback={<p>Loading....</p>}><Users userResource={userResource}/></Suspense>
     </div>
   );
+}
+
+const Users=({userResource})=>{
+  // console.log(userResource)
+  const userData = use(userResource);
+  console.log(userData.users);
+  return (
+    <div>
+      <h1>UsersList</h1>
+      {
+        userData?.users?.map((user)=>(
+          <h1>{user.firstName}</h1>
+        ))
+      }
+    </div>
+    
+  )
 }
 export default App
