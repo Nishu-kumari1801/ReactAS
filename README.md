@@ -10,3 +10,15 @@ ReactAS is a collection of React.js concepts, experiments, mini-projects, and pr
 
 The repository focuses on learning React by building things rather than only studying theory.
 
+🎯 Learning Goals
+Understand React fundamentals and component-based architecture
+Build reusable and maintainable UI components
+Understand Props and State
+Practice React Hooks
+Work with forms and user input
+Consume REST APIs
+Implement routing and navigation
+Understand asynchronous operations in React
+Practice state management
+Build practical React applications
+Strengthen frontend development skills through hands-on projects
