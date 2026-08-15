@@ -217,8 +217,7 @@ Passionate about building practical software applications and continuously impro
 ### 🔗 Connect With Me
 
 - 🐙 **GitHub:** [Nishu-kumari1801](https://github.com/Nishu-kumari1801)
-- 💼 **LinkedIn:** [Nishu Kumari]([YOUR_LINKEDIN_URL](https://www.linkedin.com/in/nishu-kumari-13a285308/))
-
+- 💼 **LinkedIn:** [Nishu Kumari](https://www.linkedin.com/in/nishu-kumari-13a285308/)
 ---
 
 ⭐ If you find this repository useful, consider giving it a star!
