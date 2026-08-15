@@ -196,4 +196,29 @@ This repository is continuously updated as I learn new React concepts and build 
 - [ ] Production-Ready React Applications
 - [ ] TypeScript with React
 - [ ] React Testing
+## 👨‍💻 Author
 
+### Nishu Kumari
+
+**B.Tech in Computer Science & Engineering (AI & ML)**  
+**GL Bajaj Institute of Technology and Management**
+
+Passionate about building practical software applications and continuously improving my problem-solving and development skills.
+
+### 💡 Areas of Interest
+
+- 💻 Web Development
+- 🧩 Data Structures & Algorithms
+- ⚛️ React.js
+- 🟢 Node.js
+- 🗄️ MongoDB
+- 🚀 Full-Stack Development
+
+### 🔗 Connect With Me
+
+- 🐙 **GitHub:** [Nishu-kumari1801](https://github.com/Nishu-kumari1801)
+- 💼 **LinkedIn:** [Nishu Kumari]([YOUR_LINKEDIN_URL](https://www.linkedin.com/in/nishu-kumari-13a285308/))
+
+---
+
+⭐ If you find this repository useful, consider giving it a star!
