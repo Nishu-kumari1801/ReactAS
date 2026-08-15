@@ -22,3 +22,19 @@ Understand asynchronous operations in React
 Practice state management
 Build practical React applications
 Strengthen frontend development skills through hands-on projects
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| ⚛️ React.js | Frontend UI development |
+| 🟨 JavaScript | Application logic |
+| 🌐 HTML5 | Structure |
+| 🎨 CSS3 | Styling |
+| 🅱️ Bootstrap | UI styling |
+| 💨 Tailwind CSS | Utility-first styling |
+| ⚡ Vite | Development & build tooling |
+| 🔗 REST APIs | API integration |
+| 🗄️ JSON Server | Mock REST API |
+| 📦 npm | Package management |
+| 🐙 Git & GitHub | Version control |
