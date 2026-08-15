@@ -38,3 +38,20 @@ Strengthen frontend development skills through hands-on projects
 | 🗄️ JSON Server | Mock REST API |
 | 📦 npm | Package management |
 | 🐙 Git & GitHub | Version control |
+
+## 📂 Repository Structure
+
+```text
+ReactAS/
+│
+├── 01_react-blog/     # React blog application
+├── API/               # API integration and data fetching
+├── Hooks/             # React Hooks practice and examples
+├── apna_cart/         # Shopping cart application
+├── colorMixer/        # Interactive color mixing application
+├── jsonServer/        # JSON Server and REST API practice
+├── namaste-world/     # React fundamentals and basic concepts
+│
+└── README.md          # Project documentation
+
+
