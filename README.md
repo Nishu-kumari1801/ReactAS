@@ -1,8 +1,8 @@
-⚛️ ReactAS — React.js Learning & Practice Repository
+# ⚛️ ReactAS — React.js Learning & Practice Repository
 
-A structured React.js learning repository containing hands-on implementations of React fundamentals, components, props, state management, hooks, API integration, routing, and practical projects.
+A hands-on **React.js learning and practice repository** containing implementations of React fundamentals, components, Props, State, Hooks, API integration, routing, and practical applications.
 
-This repository documents my journey of learning and strengthening React.js and modern frontend development through consistent practice and project-based learning.
+This repository documents my journey of strengthening my **React.js and modern frontend development skills** through consistent practice, experimentation, and project-based learning.
 
 ## 🚀 About the Repository
 
